@@ -29,12 +29,12 @@ from itertools import takewhile
 
 parser = ap.ArgumentParser()
 
-parser.add_argument('-r',  '--record',       action='store_true',      help='Record expected outputs')
-parser.add_argument('-f',  '--filter',       action='store', type=str, help='Filter files in directory(by extension), for example: `.py`', nargs='+')
-parser.add_argument('-d',  '--dir',          action='store', type=str, help='Path to directory', required=True)
-parser.add_argument('-ed', '--expected_dir', action='store', type=str, help='Path to directory in which expected outputs will be stored', default='expected')
-parser.add_argument('-c',  '--command',      action='store', type=str, help='Command to execute to get output, for example: `python $`, where $ is a path to file we are currently proccesing', nargs='+')
-parser.add_argument('-rng',  '--range',      action='store', type=str, help='Range of lines that will be used as a frame to compare "expected" and real output. The range should be provided in the format "start..end", where "start" and "end" are the zero-based line numbers (non-inclusive) that define the range, just like in Rust. For example, `-r 5..15` would use the lines from 5 to 15 as the expected output, additionally, you can use relative indexes, for example: `-r 1..e6`, which means, end will be calculated as: len(output.lines()) - end')
+parser.add_argument('-r',   '--record',       action='store_true',      help='Record expected outputs')
+parser.add_argument('-f',   '--filter',       action='store', type=str, help='Filter files in directory(by extension), for example: `.py`', nargs='+')
+parser.add_argument('-d',   '--dir',          action='store', type=str, help='Path to directory', required=True)
+parser.add_argument('-ed',  '--expected_dir', action='store', type=str, help='Path to directory in which expected outputs will be stored', default='expected')
+parser.add_argument('-c',   '--command',      action='store', type=str, help='Command to execute to get output, for example: `python $`, where $ is a path to file we are currently proccesing', nargs='+')
+parser.add_argument('-rng', '--range',        action='store', type=str, help='Range of lines that will be used as a frame to compare "expected" and real output. The range should be provided in the format "start..end", where "start" and "end" are the zero-based line numbers (non-inclusive) that define the range, just like in Rust. For example, `-r 5..15` would use the lines from 5 to 15 as the expected output, additionally, you can use relative indexes, for example: `-r 1..e6`, which means, end will be calculated as: len(output.lines()) - end')
 
 args = parser.parse_args()
 
